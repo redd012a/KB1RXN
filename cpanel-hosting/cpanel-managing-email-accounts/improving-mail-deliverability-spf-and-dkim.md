@@ -1,0 +1,8 @@
+# Improving mail deliverability \(SPF & DKIM\)
+
+ **cPanel &gt;&gt; Email - Authentication**  
+  
+The following video guide walks you through improving email deliverability from your Smart account. It includes using [mail-tester.com](http://www.mail-tester.com/) to check SPF and DKIM records and how to set them correctly in your cPanel/DNS.
+
+{% embed data="{\"url\":\"https://youtu.be/WlU6rpqOPes\",\"type\":\"video\",\"title\":\"Improving mail deliverability SPF & DKIM\",\"description\":\"Simple and fast, limitless web hosting with a 30-day money back guarantee. Now, that\'s Vimzaa.\\n\\nVimzaa and the services we provide see here:\\n\\nhttps://vimzaa.com/\\n\\nView this video in the full KnowledgeBase article here: https://kb.vimzaa.com/cpanel-hosting/cpanel-managing-email-accounts/improving-mail-deliverability-spf-and-dkim\",\"icon\":{\"type\":\"icon\",\"url\":\"https://www.youtube.com/yts/img/favicon\_144-vfliLAfaB.png\",\"width\":144,\"height\":144,\"aspectRatio\":1},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://i.ytimg.com/vi/WlU6rpqOPes/hqdefault.jpg\",\"width\":480,\"height\":360,\"aspectRatio\":0.75},\"embed\":{\"type\":\"player\",\"url\":\"https://www.youtube.com/embed/WlU6rpqOPes?rel=0&showinfo=0\",\"html\":\"<div style=\\\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75.0019%;\\\"><iframe src=\\\"https://www.youtube.com/embed/WlU6rpqOPes?rel=0&amp;showinfo=0\\\" style=\\\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\\\" allowfullscreen scrolling=\\\"no\\\"></iframe></div>\",\"aspectRatio\":1.3333},\"caption\":\"Improving Mail Deliverability \(SPF & DKIM\)\"}" %}
+

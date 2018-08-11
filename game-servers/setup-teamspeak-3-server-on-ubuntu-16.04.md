@@ -4,103 +4,101 @@ description: A quick guide to setup Teamspeak 3 server on Ubuntu 16.04
 
 # Setup Teamspeak 3 server on Ubuntu 16.04
 
-This guide, gives step-by-step to installing Teamspeak 3 \(3.0.13.6\) 64 bit server on Ubuntu 16.04 LTS. You can grab latest version [here](https://teamspeak.com/en/downloads).
+## Introduction
 
-**Step 1:**  
-Login to SSH as root
+A Teamspeak server is a piece of VoIP software which allows users to communicate with each other via speech. Teamspeak consists of two applications: a client and a server.
 
-**Step 2:**  
-Run the below commands:
+The client application is the program that you use on your computer to log into teamspeak. It can be downloaded from the [download page on the official website](https://www.teamspeak.com/en/downloads). Download the client for the operating system that you are using.
 
-```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
-```
+The server application is the application that brings each client together. It is in charge of processing the VoIP data and handling messages between you and your friends.
 
-{% hint style="info" %}
-**Note:** During the `sudo apt-get upgrade` command, you maybe asked about the grub load. Press `Enter`
-{% endhint %}
+This guide will explain the basics of setting up a TeamSpeak 3 server on Linux \(Debian, CentOS & Ubuntu Distributions\).
 
-**Step 3:**  
-Let create a user for the Teamspeak 3 server.
+## Prerequisites
 
-```bash
-sudo adduser --disabled-login teamspeak
-```
+* A VPS running Ubuntu / Debian / CentOS.
+* Teamspeak client software installed on your computer.
+* An initial server setup for:
+  * [Ubuntu](../virtual-private-servers/introduction-to-nginx-and-lemp-on-ubuntu/initial-server-setup-with-ubuntu.md)
+  * CentOS
+  * Debian
 
-You will be asked for user information for teamspeak. Press Enter for all the questions.  
-You will also be asked is the information correct. Press Enter.
+## **Step 1 - Adding User For Teamspeak 3 Server**
 
-**Step 4:**  
-Type the following command
+First, create a new user with your desired name, we will use the name "teamspeak" for this guide.
 
 ```bash
-cd /home/teamspeak/;su teamspeak
+adduser --disabled-login teamspeak
 ```
 
-**Step 5:**  
-Run the following commands to download Teamspeak, extract it and tidy up.
+## **Step 2 - Downloading Latest Version of Teamspeak 3 Server**
+
+Get the latest TeamSpeak 3 server files for 64-bit Linux. Check their website, a new version may be available.
 
 ```bash
 wget http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
-tar xvfj teamspeak3-server_linux_amd64-3.3.0.tar.bz2
-cd teamspeak3-server_linux_amd64
-cp * -R /home/teamspeak
-cd ..
-rm -r teamspeak3-server_linux_amd64
-rm teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
-
 ```
 
-  
-**Step 6:**  
-Now we start the TS3 server
+## **Step 3 - Extracting the tar.bz2**
+
+Extract the archive.
 
 ```bash
-./ts3server_startscript.sh start
+tar xvf teamspeak3-server_linux_amd64-3.1.1.tar.bz2
 ```
 
-Make sure you copy and save the security token and Server Query Admin Account details, once the server has started.
+This will create a new folder in the root directory called: `teamspeak3-server_linux_amd64`
 
-**Step 6.1:**  
-Press Enter. This will return to the command prompt.
+## **Step 4 - Moving the Files to Home Directory of Teamspeak**
 
-**Step 7:**  
-Now we need to stop the server and return to root, enter the below:
+Move the extracted files to the `teamspeak` user's home directory then remove the extracted folder and downloaded archive.
+
+```text
+cd teamspeak3-server_linux_amd64 && mv * /home/teamspeak && cd .. && rm -rf teamspeak3*
+```
+
+Accept the license agreement:
+
+```text
+touch /home/teamspeak/.ts3server_license_accepted
+```
+
+## **Step 5 - Setting up Ownership for user Teamspeak**
+
+Change ownership of the TeamSpeak 3 server files.
+
+```text
+chown -R teamspeak:teamspeak /home/teamspeak
+```
+
+## **Step 6 - Setting up start script**
+
+Make the TeamSpeak 3 server start on boot. Use your favorite editor to make a new file called `teamspeak.service` in `/lib/systemd/system/`.
 
 ```bash
-./ts3server_startscript.sh stop
-exit
+nano /lib/systemd/system/teamspeak.service
 ```
 
-**Step 8:**  
-Now we will create a restart script using systemd to restart it on boot.
-
-Run the below command \(This should open a blank page\)
-
-```bash
-nano /lib/systemd/system/ts3server.service
-```
-
-**Step 8.1.**  
-Copy the below and paste it:
+Paste this content into it:
 
 {% code-tabs %}
-{% code-tabs-item title="ts3server.service" %}
+{% code-tabs-item title="/lib/systemd/system/teamspeak.service" %}
 ```bash
 [Unit]
-Description=Teamspeak Service
-Wants=network.target
+Description=TeamSpeak 3 Server
+After=network.target
 
 [Service]
-WorkingDirectory=/home/teamspeak
+WorkingDirectory=/home/teamspeak/
 User=teamspeak
-ExecStart=/home/teamspeak/ts3server_minimal_runscript.sh
+Group=teamspeak
+Type=forking
+ExecStart=/home/teamspeak/ts3server_startscript.sh start license_accepted=1
+ExecRestart=/home/teamspeak/ts3server_startscript.sh stop
 ExecStop=/home/teamspeak/ts3server_startscript.sh stop
-ExecReload=/home/teamspeak/ts3server_startscript.sh restart
-Restart=always
+PIDFile=/home/teamspeak/ts3server.pid
 RestartSec=15
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
@@ -108,40 +106,61 @@ WantedBy=multi-user.target
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-**Step 8.2:**  
-Now we need to save it
+Once you are done, save the file and close the editor. Now we will activate the script so that it will start on boot.
 
-Press `CTRL+X` together, then Press `Y`
-
-**Step 9:**  
-Now we need to enable it, by typing in the following command:
+This makes to systemd recognize the file we just created.
 
 ```bash
-systemctl enable ts3server.service
+systemctl --system daemon-reload
 ```
 
-**Step 9.1:**  
-Type in the following to restart the server\)
+Enable the service.
 
 ```bash
-reboot
+systemctl enable teamspeak.service
 ```
 
-**Step 10:**  
-Reconnect to SSH, once the server has restarted and enter the following command:
+Start the TeamSpeak server.
 
 ```bash
-systemctl status ts3server
+systemctl start teamspeak.service
 ```
 
-**Step 10.1:**  
-This should return an ouput look for:
+Once you've started the server, you can check that it's running with this command.
 
 ```bash
-Active: active `(running)`
+systemctl status teamspeak.service
 ```
 
-**Step 10.2:**  
-To return to the command prompt, you will need to:  
-Press `Q`
+## **Step 7 - Retrieving Privilege Key**
+
+When you first try to connect to your TeamSpeak server, you may be prompted to use a privilege key. This privilege key allows to administrate your TeamSpeak server. To get this privilege key, use the following command:
+
+```text
+cat /home/teamspeak/logs/ts3server_*
+```
+
+At bottom you'll see something that looks like this:
+
+```text
+--------------------------------------------------------
+ServerAdmin privilege key created, please use the line below
+token=****************************************
+--------------------------------------------------------
+```
+
+Replace the stars with your unique token, and enter it into your TeamSpeak client. You'll see a prompt telling you that the privilege key was successfully used.
+
+## **Optional: Firewall**
+
+If you are using the built-in firewall that was included with the Ubuntu installation then `iptables` is your firewall. You may need to forward the following ports to allow connections to your TeamSpeak 3 Server.
+
+```text
+iptables -A INPUT -p udp --dport 9987 -j ACCEPT
+iptables -A INPUT -p udp --sport 9987 -j ACCEPT
+iptables -A INPUT -p tcp --dport 30033 -j ACCEPT
+iptables -A INPUT -p tcp --sport 30033 -j ACCEPT
+iptables -A INPUT -p tcp --dport 10011 -j ACCEPT
+iptables -A INPUT -p tcp --sport 10011 -j ACCEPT
+```
 

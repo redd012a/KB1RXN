@@ -92,10 +92,6 @@ This generates a private key, `id_rsa`, and a public key, `id_rsa.pub`, in the `
 
 After generating an SSH key pair, you will want to copy your public key to your new server. We will cover two easy ways to do this.
 
-**Note**: The `ssh-copy-id` method will not work on DigitalOcean if an SSH key was selected during Droplet creation. This is because DigitalOcean disables password authentication if an SSH key is present, and the `ssh-copy-id` relies on password authentication to copy the key.
-
-If you are using DigitalOcean and selected an SSH key during Droplet creation, use [option 2](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04#option-2-manually-install-the-key) instead.
-
 **Option 1: Use ssh-copy-id**
 
 If your local machine has the `ssh-copy-id` script installed, you can use it to install your public key to any user that you have login credentials for.

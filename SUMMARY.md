@@ -84,7 +84,7 @@
     * [Managing your User Account in Plesk](plesk-hosting/plesk-funtionality-explained/managing-your-user-account-in-plesk.md)
     * [Managing your Web Hosting with Plesk](plesk-hosting/plesk-funtionality-explained/managing-your-web-hosting-with-plesk.md)
 * [Game Servers](game-servers/README.md)
-  * [Setup Teamspeak 3 server on Ubuntu 16.04](game-servers/setup-teamspeak-3-server-on-ubuntu-16.04.md)
+  * [Setup Teamspeak 3 Server on Linux](game-servers/setup-teamspeak-3-server-on-ubuntu-16.04.md)
   * [Installing SteamCMD for Steam Game Servers](game-servers/install-steamcmd-for-steam-game-servers.md)
 * [SSL Certificates](ssl-certificates.md)
 * [Domains](domains/README.md)

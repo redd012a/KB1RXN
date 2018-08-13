@@ -1,8 +1,10 @@
 ---
-description: A quick guide to setup Teamspeak 3 server on Ubuntu 16.04
+description: >-
+  A quick guide to setup Teamspeak 3 server on Ubuntu 16.04, Ubuntu 14.04,
+  CentOS 6, CentOS 7, Debian 7 & Debian 8.
 ---
 
-# Setup Teamspeak 3 server on Ubuntu 16.04
+# Setup Teamspeak 3 Server on Linux
 
 ## Introduction
 
@@ -53,7 +55,7 @@ wget http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_amd64-3.3.0
 Extract the archive for all the distributions.
 
 ```bash
-tar xvf teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+tar xvf teamspeak3-server_linux_amd64-3.3.0.tar.bz2
 ```
 
 This will create a new folder in the root directory called: `teamspeak3-server_linux_amd64`
@@ -82,7 +84,7 @@ chown -R teamspeak:teamspeak /home/teamspeak
 
 ## **Step 6 - Setting up start script**
 
-### **Ubuntu 16.04 / Debian 8 or Higher**
+### **Ubuntu 16.04 / Debian 8 / CentOS 7 or Higher**
 
 Make the TeamSpeak 3 server start on boot. Use your favorite editor to make a new file called `teamspeak.service` in `/lib/systemd/system/`.
 
@@ -159,6 +161,64 @@ sudo service teamspeak start
 ```
 
 On your terminal, you will see a screen with the query username/password and a privilege key - be sure to write this information down as you will need it to administer your server.
+
+### CentOS 6 or Lower
+
+ Now we need to create the script in the /etc/init.d folder:
+
+```bash
+nano /etc/init.d/teamspeak
+```
+
+ Once you are in the file paste the following code into the file by right clicking the mouse.
+
+{% code-tabs %}
+{% code-tabs-item title="/etc/init.d/teamspeak" %}
+```bash
+#!/bin/sh
+# chkconfig: 2345 99 10
+USER="teamspeak"
+TS3='/home/teamspeak/'
+STARTSCRIPT="$TS3/ts3server_startscript.sh"
+cd $TS3
+case "$1" in
+'start')
+su $USER -c "$STARTSCRIPT start"
+;;
+'stop')
+su $USER -c "$STARTSCRIPT stop"
+;;
+'restart')
+su $USER -c "$STARTSCRIPT restart"
+;;
+'status')
+su $USER -c "$STARTSCRIPT status"
+;;
+*)
+echo "Usage $0 start|stop|restart|status"
+esac
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Click Ctrl + O to save the file then Ctrl + X to exit the file. We can then set the file permission so it will work properly.
+
+```bash
+chmod 755 /etc/init.d/teamspeak
+```
+
+Now we need to add the service so it will restart when the server is restarted. Enter the following commands and then restart the server.
+
+```bash
+chkconfig --add teamspeak
+chkconfig --level 2345 teamspeak on
+```
+
+Once the server restarts connect to teamspeak and make sure everything restarted. You can also check the status through command line by using the following command.
+
+```bash
+service teamspeak status
+```
 
 ## **Step 7 - Retrieving Privilege Key**
 

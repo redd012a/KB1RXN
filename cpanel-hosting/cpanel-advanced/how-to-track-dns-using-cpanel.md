@@ -10,11 +10,11 @@ cPanel > Home > Advanced > Track DNS
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Overview {#TrackDNS-Overview}
+### Overview <a id="TrackDNS-Overview"></a>
 
 This interface contains tools to help you retrieve network information. For example, you can look up an IP address or trace the route from your computer to the computer that hosts your website.
 
-### Domain Lookup {#TrackDNS-DomainLookup}
+### Domain Lookup <a id="TrackDNS-DomainLookup"></a>
 
 The _Domain Lookup_ tool executes the `host domain` command, where `domain` represents a specific domain. This command resolves an IP address from a specified domain name, and returns general DNS information about the server.
 
@@ -25,7 +25,7 @@ To look up a domain, perform the following steps:
 
 The domain’s mail servers and IP address will display. You can also view the domain’s DNS information under the `Zone Information` heading.
 
-### Trace Route {#TrackDNS-TraceRoute}
+### Trace Route <a id="TrackDNS-TraceRoute"></a>
 
 The `Trace Route` function traces the route that your computer takes to access your website. This function displays how many servers through which your data passes before it reaches your website. This information also includes the amount of time that your computer requires to reach the server.
 

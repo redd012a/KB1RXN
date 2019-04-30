@@ -83,7 +83,7 @@ When the key is generated, you’ll see the public key displayed in a text box. 
 
 Click the **Save private key** button and select a secure location to keep it. You can name your key whatever you’d like, and the extension `.ppk` will be automatically added.
 
-### Working with PuTTY’s Public Key Format {#working-with-putty-s-public-key-format}
+### Working with PuTTY’s Public Key Format <a id="working-with-putty-s-public-key-format"></a>
 
 You can click **Save public key** as well, but take note: The format PuTTYGen uses when it saves the public key is incompatible with the OpenSSH `authorized_keys` files used for SSH key authentication on Linux servers.
 
@@ -96,7 +96,7 @@ The public key will be redisplayed again.
 
 Click the **Save private key** button and select a secure location to keep it. You can name your key whatever you’d like, and the extension `.ppk` will be automatically added.
 
-### Working with PuTTY’s Public Key Format {#working-with-putty-s-public-key-format-1}
+### Working with PuTTY’s Public Key Format <a id="working-with-putty-s-public-key-format-1"></a>
 
 You can click **Save public key** as well, but take note: The format PuTTYGen uses when it saves the public key is incompatible with the OpenSSH `authorized_keys` files used for SSH key authentication on Linux servers.
 
@@ -117,7 +117,7 @@ There are several ways to add your public key to a server:
 * By copying the contents of the key and piping the contents into the `~/.ssh/authorized_keys` file. This is a good choice when you have password-based SSH access but don’t have `ssh-copy-id`.
 * By adding the public key manually, which is necessary if you do not have password-based SSH access.
 
-### With ssh-copy-id and Password-Based Access {#with-ssh-copy-id-and-password-based-access}
+### With ssh-copy-id and Password-Based Access <a id="with-ssh-copy-id-and-password-based-access"></a>
 
 You can copy your SSH key using `ssh-copy-id`, substituting in the IP address of your VPS.
 
@@ -147,7 +147,7 @@ and check to make sure that only the key(s) you wanted were added.
 
 After entering the password, it will copy your key, and you can log in without a password.
 
-### With ssh and Password-Based Access {#with-ssh-and-password-based-access}
+### With ssh and Password-Based Access <a id="with-ssh-and-password-based-access"></a>
 
 If you do not have the `ssh-copy-id` utility available, but still have password-based SSH access to the remote server, you can pipe the contents of the key into the `ssh` command.
 
@@ -168,7 +168,7 @@ username@203.0.113.0's password:
 
 After entering the password, it will copy your key, and you can log in without a password.
 
-### Without Password-Based Access {#without-password-based-access}
+### Without Password-Based Access <a id="without-password-based-access"></a>
 
 If you do not have password-based SSH access available, you will have to add your public key to the remote server manually.
 

@@ -10,7 +10,7 @@ cPanel > Home > Domains > Aliases
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Overview {#Aliases-Overview}
+### Overview <a id="Aliases-Overview"></a>
 
 Domain aliases are domains that you own, but which do not contain any content. Instead, they point to the contents of another domain or subdomain on your account. This is useful, for example, to hold a domain that you will later sell, or to redirect traffic to another domain.
 
@@ -21,7 +21,7 @@ Unless your hosting provider enables the _Allow Remote Domains_ option in the [_
 * You **must** register the domain name with a valid registrar.
 * You **must** point the domain to your account’s nameservers.
 
-### Create a New Alias {#Aliases-CreateaNewAlias}
+### Create a New Alias <a id="Aliases-CreateaNewAlias"></a>
 
 To add a domain alias, enter the domain name in the text box and click _Add Domain_.
 
@@ -35,7 +35,7 @@ Note:
 
 You can create email accounts for domain aliases. For more information, read the [Alias domain email accounts](https://documentation.cpanel.net/display/68Docs/Aliases#Aliases-EmailAccounts) section below.
 
-### Enable or disable domain alias redirection {#Aliases-Enableordisabledomainaliasredirection}
+### Enable or disable domain alias redirection <a id="Aliases-Enableordisabledomainaliasredirection"></a>
 
 To enable or disable redirection of a domain alias, perform the following steps:
 
@@ -43,7 +43,7 @@ To enable or disable redirection of a domain alias, perform the following steps:
 2. To redirect the domain, enter the link to which you wish to redirect the domain alias in the text box.
 3. Click _Save_. To disable the redirection, click _Disable Redirection_.
 
-### Remove Aliases {#Aliases-RemoveAliases}
+### Remove Aliases <a id="Aliases-RemoveAliases"></a>
 
 Notes:
 
@@ -55,11 +55,11 @@ To remove an existing domain alias, perform the following steps:
 1. Click _Remove_ for the alias that you wish to remove.
 2. Click _Yes_ to confirm that you wish to remove the domain alias. To retain the domain alias, click _No_.
 
-### Search aliases {#Aliases-Searchaliases}
+### Search aliases <a id="Aliases-Searchaliases"></a>
 
 To search through the list of domain aliases, enter the search criteria in the _Search_ text box and click _Go_. Results that match your search criteria will populate the table.
 
-### Domain alias email accounts {#Aliases-EmailAccountsDomainaliasemailaccounts}
+### Domain alias email accounts <a id="Aliases-EmailAccountsDomainaliasemailaccounts"></a>
 
 To add new email accounts, use cPanel’s [_Email Accounts_](https://documentation.cpanel.net/display/68Docs/Email+Accounts) interface \(_cPanel &gt;&gt; Home &gt;&gt; Email &gt;&gt; Email Accounts_\), or run the `/scripts/addpop` script from the command line.
 
@@ -98,7 +98,7 @@ If you remove the domain alias, its email accounts will no longer appear in the 
 
   The email accounts **must** follow the same name and domain formats that they previously followed.
 
-### Addon vs. alias domains {#Aliases-Addonvs.aliasdomains}
+### Addon vs. alias domains <a id="Aliases-Addonvs.aliasdomains"></a>
 
 | Characteristic | Addon domains | Alias domains |
 | :--- | :--- | :--- |

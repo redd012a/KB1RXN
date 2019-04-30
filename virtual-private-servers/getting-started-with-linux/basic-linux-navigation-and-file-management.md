@@ -2,13 +2,13 @@
 
 
 
-#### Introduction {#introduction}
+#### Introduction <a id="introduction"></a>
 
 If you do not have much experience working with Linux systems, you may be overwhelmed by the prospect of controlling an operating system from the command line. In this guide, we will attempt to get you up to speed with the basics.
 
 This guide will not cover everything you need to know to effectively use a Linux system. However, it should give you a good jumping-off point for future exploration. This guide will give you the bare minimum you need to know before moving on to other guides.
 
-### Prerequisites and Goals {#prerequisites-and-goals}
+### Prerequisites and Goals <a id="prerequisites-and-goals"></a>
 
 In order to follow along with this guide, you will need to have access to a Linux server. If you need information about connecting to your server for the first time, you can follow [our guide on connecting to a Linux server using SSH](../connect-with-ssh/).
 
@@ -18,11 +18,11 @@ All of the material in this guide can be accomplished with a regular, non-root \
 
 When you are ready to begin, connect to your Linux server using SSH and continue below.
 
-### Navigation and Exploration {#navigation-and-exploration}
+### Navigation and Exploration <a id="navigation-and-exploration"></a>
 
 The most fundamental skills you need to master are moving around the filesystem and getting an idea of what is around you. We will discuss the tools that allow you to do this in this section.
 
-#### Finding Where You Are with the "pwd" Command {#finding-where-you-are-with-the-quot-pwd-quot-command}
+#### Finding Where You Are with the "pwd" Command <a id="finding-where-you-are-with-the-quot-pwd-quot-command"></a>
 
 When you log into your server, you are typically dropped into your user account's **home directory**. A home directory is a directory set aside for your user to store files and create directories. It is the location in the filesystem where you have full dominion.
 
@@ -40,7 +40,7 @@ You should get back some information that looks like this:
 
 The home directory is named after the user account, so the above example is what the value would be if you were logged into the server with an account called `demo`. This directory is within a directory called `/home`, which is itself within the top-level directory, which is called "root" but represented by a single slash "/".
 
-#### Looking at the Contents of Directories with "ls" {#looking-at-the-contents-of-directories-with-quot-ls-quot}
+#### Looking at the Contents of Directories with "ls" <a id="looking-at-the-contents-of-directories-with-quot-ls-quot"></a>
 
 Now that you know how to display the directory that you are in, we can show you how to look at the contents of a directory.
 
@@ -108,7 +108,7 @@ As you can see, there are three hidden files in this demonstration, along with `
 
 For the dot and double dot entries, these aren't exactly directories as much as built-in methods of referring to related directories. The single dot indicates the current directory, and the double dot indicates this directory's parent directory. This will come in handy in the next section.
 
-#### Moving Around the Filesystem with "cd" {#moving-around-the-filesystem-with-quot-cd-quot}
+#### Moving Around the Filesystem with "cd" <a id="moving-around-the-filesystem-with-quot-cd-quot"></a>
 
 We have already made two directory moves in order to demonstrate some properties of `ls` in the last section. Let's take a better look at the command here.
 
@@ -153,7 +153,7 @@ pwd
 
 To learn more about how to use these three commands, you can check out [our guide on exploring the Linux filesystem](https://www.digitalocean.com/community/tutorials/how-to-use-cd-pwd-and-ls-to-explore-the-file-system-on-a-linux-server).
 
-### Viewing Files {#viewing-files}
+### Viewing Files <a id="viewing-files"></a>
 
 In the last section, we learned a bit about how to navigate the filesystem. You probably saw some files when using the `ls` command in various directories. In this section, we'll discuss different ways that you can use to view files. In contrast to some operating systems, Linux and other Unix-like operating systems rely on plain text files for vast portions of the system.
 
@@ -217,11 +217,11 @@ While we focused on the `less` tool in this section, there are many other ways o
 
 Feel free to see how these commands display the `/etc/services` file differently.
 
-### File and Directory Manipulation {#file-and-directory-manipulation}
+### File and Directory Manipulation <a id="file-and-directory-manipulation"></a>
 
 We learned in the last section how to view a file. In this section, we'll demonstrate how to create and manipulate files and directories.
 
-#### Create a File with "touch" {#create-a-file-with-quot-touch-quot}
+#### Create a File with "touch" <a id="create-a-file-with-quot-touch-quot"></a>
 
 Many commands and programs can create files. The most basic method of creating a file is with the `touch`command. This will create an empty file using the name and location specified.
 
@@ -255,7 +255,7 @@ ls
 file1  file2  file3
 ```
 
-#### Create a Directory with "mkdir" {#create-a-directory-with-quot-mkdir-quot}
+#### Create a Directory with "mkdir" <a id="create-a-directory-with-quot-mkdir-quot"></a>
 
 Similar to the `touch` command, the `mkdir` command allows us to create empty directories.
 
@@ -280,7 +280,7 @@ mkdir -p some/other/directories
 
 The command will make the `some` directory first, then it will create the `other` directory inside of that. Finally it will create the `directories` directory within those two directories.
 
-#### Moving and Renaming Files and Directories with "mv" {#moving-and-renaming-files-and-directories-with-quot-mv-quot}
+#### Moving and Renaming Files and Directories with "mv" <a id="moving-and-renaming-files-and-directories-with-quot-mv-quot"></a>
 
 We can move a file to a new location using the `mv` command. For instance, we can move `file1` into the `test` directory by typing:
 
@@ -305,7 +305,7 @@ mv test testing
 
 **Note**: It is important to realize that your Linux system will not prevent you from certain destructive actions. If you are renaming a file and choose a name that _already_ exists, the previous file will be **overwritten** by the file you are moving. There is no way to recover the previous file if you accidentally overwrite it.
 
-#### Copying Files and Directories with "cp" {#copying-files-and-directories-with-quot-cp-quot}
+#### Copying Files and Directories with "cp" <a id="copying-files-and-directories-with-quot-cp-quot"></a>
 
 With the `mv` command, we could move or rename a file or directory, but we could not duplicate it. The `cp`command can make a new copy of an existing item.
 
@@ -335,7 +335,7 @@ cp file1 again
 
 This will create a new copy of `file1` and place it inside of the `again` directory.
 
-#### Removing Files and Directories with "rm" and "rmdir" {#removing-files-and-directories-with-quot-rm-quot-and-quot-rmdir-quot}
+#### Removing Files and Directories with "rm" and "rmdir" <a id="removing-files-and-directories-with-quot-rm-quot-and-quot-rmdir-quot"></a>
 
 To delete a file, you can use the `rm` command.
 
@@ -364,7 +364,7 @@ rm -r again
 
 Once again, it is worth reiterating that these are permanent actions. Be entirely sure that the command you typed is the one that you wish to execute.
 
-### Editing Files {#editing-files}
+### Editing Files <a id="editing-files"></a>
 
 Currently, we know how to manipulate files as objects, but we have not learned how to actually edit them and add content to them.
 
@@ -462,7 +462,7 @@ Another line.
 
 Another editor that you may see referenced in certain guides is `vim` or `vi`. This is a more advanced editor that is very powerful, but comes with a very steep learning curve. If you are ever told to use `vim` or `vi`, feel free to use `nano` instead. If you wish to learn how to use `vim`, read our [guide to getting started with vim](https://www.digitalocean.com/community/tutorials/installing-and-using-the-vim-text-editor-on-a-cloud-server).
 
-### Conclusion {#conclusion}
+### Conclusion <a id="conclusion"></a>
 
 By now, you should have a basic understanding of how to get around your Linux server and how to see the files and directories available. You should also know some basic file manipulation commands that will allow you to view, copy, move, or delete files. Finally, you should be comfortable with some basic editing using the `nano` text editor.
 

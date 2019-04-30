@@ -1,23 +1,23 @@
 # SSH Essentials: Working with SSH Servers, Clients, and Keys
 
-#### Introduction {#introduction}
+#### Introduction <a id="introduction"></a>
 
 SSH is a secure protocol used as the primary means of connecting to Linux servers remotely. It provides a text-based interface by spawning a remote shell. After connecting, all commands you type in your local terminal are sent to the remote server and executed there.
 
 In this cheat sheet-style guide, we will cover some common ways of connecting with SSH to achieve your objectives. This can be used as a quick reference when you need to know how to do connect to or configure your server in different ways.
 
-### How To Use This Guide {#how-to-use-this-guide}
+### How To Use This Guide <a id="how-to-use-this-guide"></a>
 
 * Read the SSH Overview section first if you are unfamiliar with SSH in general or are just getting started.
 * Use whichever subsequent sections are applicable to what you are trying to achieve. Most sections are not predicated on any other, so you can use the examples below independently.
 * Use the Contents menu on the left side of this page \(at wide page widths\) or your browser's find function to locate the sections you need.
 * Copy and paste the command-line examples given, substituting the values in `red` with your own values.
 
-### SSH Overview {#ssh-overview}
+### SSH Overview <a id="ssh-overview"></a>
 
 The most common way of connecting to a remote Linux server is through SSH. SSH stands for Secure Shell and provides a safe and secure way of executing commands, making changes, and configuring services remotely. When you connect through SSH, you log in using an account that exists on the remote server.
 
-#### How SSH Works {#how-ssh-works}
+#### How SSH Works <a id="how-ssh-works"></a>
 
 When you connect through SSH, you will be dropped into a shell session, which is a text-based interface where you can interact with your server. For the duration of your SSH session, any commands that you type into your local terminal are sent through an encrypted SSH tunnel and executed on your server.
 
@@ -25,7 +25,7 @@ The SSH connection is implemented using a client-server model. This means that f
 
 The user's computer must have an SSH client. This is a piece of software that knows how to communicate using the SSH protocol and can be given information about the remote host to connect to, the username to use, and the credentials that should be passed to authenticate. The client can also specify certain details about the connection type they would like to establish.
 
-#### How SSH Authenticates Users {#how-ssh-authenticates-users}
+#### How SSH Authenticates Users <a id="how-ssh-authenticates-users"></a>
 
 Clients generally authenticate either using passwords \(less secure and not recommended\) or SSH keys, which are very secure.
 
@@ -41,11 +41,11 @@ Upon receipt of this message, the client will decrypt it using the private key a
 
 Now that you know how SSH works, we can begin to discuss some examples to demonstrate different ways of working with SSH
 
-### Generating and Working with SSH Keys {#generating-and-working-with-ssh-keys}
+### Generating and Working with SSH Keys <a id="generating-and-working-with-ssh-keys"></a>
 
 This section will cover how to generate SSH keys on a client machine and distribute the public key to servers where they should be used. This is a good section to start with if you have not previously generated keys due to the increased security that it allows for future connections.
 
-#### Generating an SSH Key Pair {#generating-an-ssh-key-pair}
+#### Generating an SSH Key Pair <a id="generating-an-ssh-key-pair"></a>
 
 Generating a new SSH public and private key pair on your local computer is the first step towards authenticating with a remote server without a password. Unless there is a good reason not to, you should always authenticate using SSH keys.
 
@@ -97,7 +97,7 @@ This procedure has generated an RSA SSH key pair, located in the `.ssh` hidden d
 * `~/.ssh/id_rsa`: The private key. DO NOT SHARE THIS FILE!
 * `~/.ssh/id_rsa.pub`: The associated public key. This can be shared freely without consequence.
 
-#### Generate an SSH Key Pair with a Larger Number of Bits {#generate-an-ssh-key-pair-with-a-larger-number-of-bits}
+#### Generate an SSH Key Pair with a Larger Number of Bits <a id="generate-an-ssh-key-pair-with-a-larger-number-of-bits"></a>
 
 SSH keys are 2048 bits by default. This is generally considered to be good enough for security, but you can specify a greater number of bits for a more hardened key.
 
@@ -115,7 +115,7 @@ Overwrite (y/n)?
 
 If you choose "yes", your previous key will be overwritten and you will no longer be able to log into servers using that key. Because of this, be sure to overwrite keys with caution.
 
-#### Removing or Changing the Passphrase on a Private Key {#removing-or-changing-the-passphrase-on-a-private-key}
+#### Removing or Changing the Passphrase on a Private Key <a id="removing-or-changing-the-passphrase-on-a-private-key"></a>
 
 If you have generated a passphrase for your private key and wish to change or remove it, you can do so easily.
 
@@ -146,7 +146,7 @@ Enter same passphrase again:
 
 Here, enter your new passphrase or press ENTER to remove the passphrase.
 
-#### Displaying the SSH Key Fingerprint {#displaying-the-ssh-key-fingerprint}
+#### Displaying the SSH Key Fingerprint <a id="displaying-the-ssh-key-fingerprint"></a>
 
 Each SSH key pair share a single cryptographic "fingerprint" which can be used to uniquely identify the keys. This can be useful in a variety of situations.
 
@@ -166,7 +166,7 @@ You can press ENTER if that is the correct location of the key, else enter the r
 4096 8e:c4:82:47:87:c2:26:4b:68:ff:96:1a:39:62:9e:4e  demo@test (RSA)
 ```
 
-#### Copying your Public SSH Key to a Server with SSH-Copy-ID {#copying-your-public-ssh-key-to-a-server-with-ssh-copy-id}
+#### Copying your Public SSH Key to a Server with SSH-Copy-ID <a id="copying-your-public-ssh-key-to-a-server-with-ssh-copy-id"></a>
 
 To copy your public key to a server, allowing you to authenticate without a password, a number of approaches can be taken.
 
@@ -204,7 +204,7 @@ You can now log into that account without a password:
 ssh username@remote_host
 ```
 
-#### Copying your Public SSH Key to a Server Without SSH-Copy-ID {#copying-your-public-ssh-key-to-a-server-without-ssh-copy-id}
+#### Copying your Public SSH Key to a Server Without SSH-Copy-ID <a id="copying-your-public-ssh-key-to-a-server-without-ssh-copy-id"></a>
 
 If you do not have the `ssh-copy-id` utility available, but still have password-based SSH access to the remote server, you can copy the contents of your public key in a different way.
 
@@ -229,7 +229,7 @@ After entering the password, your key will be copied, allowing you to log in wit
 ssh username@remote_IP_host
 ```
 
-#### Copying your Public SSH Key to a Server Manually {#copying-your-public-ssh-key-to-a-server-manually}
+#### Copying your Public SSH Key to a Server Manually <a id="copying-your-public-ssh-key-to-a-server-manually"></a>
 
 If you do not have password-based SSH access available, you will have to add your public key to the remote server manually.
 
@@ -259,11 +259,11 @@ echo public_key_string >> ~/.ssh/authorized_keys
 
 You should now be able to log into the remote server without a password.
 
-### Basic Connection Instructions {#basic-connection-instructions}
+### Basic Connection Instructions <a id="basic-connection-instructions"></a>
 
 The following section will cover some of the basics about how to connect to a server with SSH.
 
-#### Connecting to a Remote Server {#connecting-to-a-remote-server}
+#### Connecting to a Remote Server <a id="connecting-to-a-remote-server"></a>
 
 To connect to a remote server and open a shell session there, you can use the `ssh` command.
 
@@ -291,7 +291,7 @@ Type "yes" to accept the authenticity of the remote host.
 
 If you are using password authentication, you will be prompted for the password for the remote account here. If you are using SSH keys, you will be prompted for your private key's passphrase if one is set, otherwise you will be logged in automatically.
 
-#### Running a Single Command on a Remote Server {#running-a-single-command-on-a-remote-server}
+#### Running a Single Command on a Remote Server <a id="running-a-single-command-on-a-remote-server"></a>
 
 To run a single command on a remote server instead of spawning a shell session, you can add the command after the connection information, like this:
 
@@ -301,7 +301,7 @@ ssh username@remote_host command_to_run
 
 This will connect to the remote host, authenticate with your credentials, and execute the command you specified. The connection will immediately close afterwards.
 
-#### Logging into a Server with a Different Port {#logging-into-a-server-with-a-different-port}
+#### Logging into a Server with a Different Port <a id="logging-into-a-server-with-a-different-port"></a>
 
 By default the SSH daemon on a server runs on port 22. Your SSH client will assume that this is the case when trying to connect. If your SSH server is listening on a non-standard port \(this is demonstrated in a later section\), you will have to specify the new port number when connecting with your client.
 
@@ -329,7 +329,7 @@ Host remote_alias
 
 This will allow you to log in without specifying the specific port number on the command line.
 
-#### Adding your SSH Keys to an SSH Agent to Avoid Typing the Passphrase {#adding-your-ssh-keys-to-an-ssh-agent-to-avoid-typing-the-passphrase}
+#### Adding your SSH Keys to an SSH Agent to Avoid Typing the Passphrase <a id="adding-your-ssh-keys-to-an-ssh-agent-to-avoid-typing-the-passphrase"></a>
 
 If you have an passphrase on your private SSH key, you will be prompted to enter the passphrase every time you use it to connect to a remote host.
 
@@ -360,7 +360,7 @@ Identity added: /home/demo/.ssh/id_rsa (/home/demo/.ssh/id_rsa)
 
 You will have to enter your passphrase \(if one is set\). Afterwards, your identity file is added to the agent, allowing you to use your key to sign in without having re-enter the passphrase again.
 
-#### Forwarding your SSH Credentials to Use on a Server {#forwarding-your-ssh-credentials-to-use-on-a-server}
+#### Forwarding your SSH Credentials to Use on a Server <a id="forwarding-your-ssh-credentials-to-use-on-a-server"></a>
 
 If you wish to be able to connect without a password to one server from within another server, you will need to forward your SSH key information. This will allow you to authenticate to another server through the server you are connected to, using the credentials on your local computer.
 
@@ -372,11 +372,11 @@ ssh -A username@remote_host
 
 From here, you can SSH into any other host that your SSH key is authorized to access. You will connect as if your private SSH key were located on this server.
 
-### Server-Side Configuration Options {#server-side-configuration-options}
+### Server-Side Configuration Options <a id="server-side-configuration-options"></a>
 
 This section contains some common server-side configuration options that can shape the way that your server responds and what types of connections are allowed.
 
-#### Disabling Password Authentication {#disabling-password-authentication}
+#### Disabling Password Authentication <a id="disabling-password-authentication"></a>
 
 If you have SSH keys configured, tested, and working properly, it is probably a good idea to disable password authentication. This will prevent any user from signing in with SSH using a password.
 
@@ -408,7 +408,7 @@ sudo service sshd restart
 
 Now, all accounts on the system will be unable to login with SSH using passwords.
 
-#### Changing the Port that the SSH Daemon Runs On {#changing-the-port-that-the-ssh-daemon-runs-on}
+#### Changing the Port that the SSH Daemon Runs On <a id="changing-the-port-that-the-ssh-daemon-runs-on"></a>
 
 Some administrators suggest that you change the default port that SSH runs on. This can help decrease the number of authentication attempts your server is subjected to from automated bots.
 
@@ -441,7 +441,7 @@ sudo service sshd restart
 
 After the daemon restarts, you will need to authenticate by specifying the port number \(demonstrated in an earlier section\).
 
-#### Limiting the Users Who can Connect Through SSH {#limiting-the-users-who-can-connect-through-ssh}
+#### Limiting the Users Who can Connect Through SSH <a id="limiting-the-users-who-can-connect-through-ssh"></a>
 
 To explicitly limit the user accounts who are able to login through SSH, you can take a few different approaches, each of which involve editing the SSH daemon config file.
 
@@ -506,7 +506,7 @@ On CentOS/Fedora:
 sudo service sshd restart
 ```
 
-#### Disabling Root Login {#disabling-root-login}
+#### Disabling Root Login <a id="disabling-root-login"></a>
 
 It is often advisable to completely disable root login through SSH after you have set up an SSH user account that has `sudo` privileges.
 
@@ -536,7 +536,7 @@ On CentOS/Fedora:
 sudo service sshd restart
 ```
 
-#### Allowing Root Access for Specific Commands {#allowing-root-access-for-specific-commands}
+#### Allowing Root Access for Specific Commands <a id="allowing-root-access-for-specific-commands"></a>
 
 There are some cases where you might want to disable root access generally, but enable it in order to allow certain applications to run correctly. An example of this might be a backup routine.
 
@@ -588,7 +588,7 @@ On CentOS/Fedora:
 sudo service sshd restart
 ```
 
-#### Forwarding X Application Displays to the Client {#forwarding-x-application-displays-to-the-client}
+#### Forwarding X Application Displays to the Client <a id="forwarding-x-application-displays-to-the-client"></a>
 
 The SSH daemon can be configured to automatically forward the display of X applications on the server to the client machine. For this to function correctly, the client must have an X windows system configured and enabled.
 
@@ -626,11 +626,11 @@ ssh -X username@remote_host
 
 Graphical applications started on the server through this session should be displayed on the local computer. The performance might be a bit slow, but it is very helpful in a pinch.
 
-### Client-Side Configuration Options {#client-side-configuration-options}
+### Client-Side Configuration Options <a id="client-side-configuration-options"></a>
 
 In the next section, we'll focus on some adjustments that you can make on the client side of the connection.
 
-#### Defining Server-Specific Connection Information {#defining-server-specific-connection-information}
+#### Defining Server-Specific Connection Information <a id="defining-server-specific-connection-information"></a>
 
 On your local computer, you can define individual configurations for some or all of the servers you connect to. These can be stored in the `~/.ssh/config` file, which is read by your SSH client each time it is called.
 
@@ -676,7 +676,7 @@ Host testhost
 
 Save and close the file when you are finished.
 
-#### Keeping Connections Alive to Avoid Timeout {#keeping-connections-alive-to-avoid-timeout}
+#### Keeping Connections Alive to Avoid Timeout <a id="keeping-connections-alive-to-avoid-timeout"></a>
 
 If you find yourself being disconnected from SSH sessions before you are ready, it is possible that your connection is timing out.
 
@@ -697,7 +697,7 @@ Host *
 
 Save and close the file when you are finished.
 
-#### Disabling Host Checking {#disabling-host-checking}
+#### Disabling Host Checking <a id="disabling-host-checking"></a>
 
 By default, whenever you connect to a new server, you will be shown the remote SSH daemon's host key fingerprint.
 
@@ -738,7 +738,7 @@ Host testhost
     UserKnownHostsFile /home/demo/.ssh/known_hosts
 ```
 
-#### Multiplexing SSH Over a Single TCP Connection {#multiplexing-ssh-over-a-single-tcp-connection}
+#### Multiplexing SSH Over a Single TCP Connection <a id="multiplexing-ssh-over-a-single-tcp-connection"></a>
 
 There are situations where establishing a new TCP connection can take longer than you would like. If you are making multiple connections to the same machine, you can take advantage of multiplexing.
 
@@ -779,11 +779,11 @@ If for some reason you need to bypass the multiplexing configuration temporarily
 ssh -S none username@remote_host
 ```
 
-### Setting Up SSH Tunnels {#setting-up-ssh-tunnels}
+### Setting Up SSH Tunnels <a id="setting-up-ssh-tunnels"></a>
 
 Tunneling other traffic through a secure SSH tunnel is an excellent way to work around restrictive firewall settings. It is also a great way to encrypt otherwise unencrypted network traffic.
 
-#### Configuring Local Tunneling to a Server {#configuring-local-tunneling-to-a-server}
+#### Configuring Local Tunneling to a Server <a id="configuring-local-tunneling-to-a-server"></a>
 
 SSH connections can be used to tunnel traffic from ports on the local host to ports on a remote host.
 
@@ -832,7 +832,7 @@ kill 5965
 
 Another option is to start the connection _without_ the `-f` flag. This will keep the connection in the foreground, preventing you from using the terminal window for the duration of the forwarding. The benefit of this is that you can easily kill the tunnel by typing "CTRL-C".
 
-#### Configuring Remote Tunneling to a Server {#configuring-remote-tunneling-to-a-server}
+#### Configuring Remote Tunneling to a Server <a id="configuring-remote-tunneling-to-a-server"></a>
 
 SSH connections can be used to tunnel traffic from ports on the local host to ports on a remote host.
 
@@ -881,7 +881,7 @@ kill 5965
 
 Another option is to start the connection _without_ the `-f` flag. This will keep the connection in the foreground, preventing you from using the terminal window for the duration of the forwarding. The benefit of this is that you can easily kill the tunnel by typing "CTRL-C".
 
-#### Configuring Dynamic Tunneling to a Remote Server {#configuring-dynamic-tunneling-to-a-remote-server}
+#### Configuring Dynamic Tunneling to a Remote Server <a id="configuring-dynamic-tunneling-to-a-remote-server"></a>
 
 SSH connections can be used to tunnel traffic from ports on the local host to ports on a remote host.
 
@@ -920,11 +920,11 @@ kill 5965
 
 Another option is to start the connection _without_ the `-f` flag. This will keep the connection in the foreground, preventing you from using the terminal window for the duration of the forwarding. The benefit of this is that you can easily kill the tunnel by typing "CTRL-C".
 
-### Using SSH Escape Codes to Control Connections {#using-ssh-escape-codes-to-control-connections}
+### Using SSH Escape Codes to Control Connections <a id="using-ssh-escape-codes-to-control-connections"></a>
 
 Even after establishing an SSH session, it is possible to exercise control over the connection from within the terminal. We can do this with something called SSH escape codes, which allow us to interact with our local SSH software from within a session.
 
-#### Forcing a Disconnect from the Client-Side \(How to Exit Out of a Stuck or Frozen Session\) {#forcing-a-disconnect-from-the-client-side-how-to-exit-out-of-a-stuck-or-frozen-session}
+#### Forcing a Disconnect from the Client-Side \(How to Exit Out of a Stuck or Frozen Session\) <a id="forcing-a-disconnect-from-the-client-side-how-to-exit-out-of-a-stuck-or-frozen-session"></a>
 
 One of the most useful feature of OpenSSH that goes largely unnoticed is the ability to control certain aspects of the session from within.
 
@@ -941,7 +941,7 @@ To close a connection from the client, use the control character \(`~`\), with a
 
 The connection should immediately close, returning you to your local shell session.
 
-#### Placing an SSH Session into the Background {#placing-an-ssh-session-into-the-background}
+#### Placing an SSH Session into the Background <a id="placing-an-ssh-session-into-the-background"></a>
 
 One of the most useful feature of OpenSSH that goes largely unnoticed is the ability to control certain aspects of the session from within the connection.
 
@@ -979,7 +979,7 @@ You can then bring any of the tasks to the foreground by using the index in the 
 fg %2
 ```
 
-#### Changing Port Forwarding Options on an Existing SSH Connection {#changing-port-forwarding-options-on-an-existing-ssh-connection}
+#### Changing Port Forwarding Options on an Existing SSH Connection <a id="changing-port-forwarding-options-on-an-existing-ssh-connection"></a>
 
 One of the most useful feature of OpenSSH that goes largely unnoticed is the ability to control certain aspects of the session from within the connection.
 
@@ -1037,7 +1037,7 @@ Port 8888 on your local computer will now be able to communicate with the web se
 -KL 8888
 ```
 
-### Conclusion {#conclusion}
+### Conclusion <a id="conclusion"></a>
 
 The above instructions should cover the majority of the information most users will need about SSH on a day-to-day basis.
 

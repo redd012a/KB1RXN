@@ -2,7 +2,7 @@
 
 
 
-### Addon and alias domains {#AddonDomains-Addonandaliasdomains}
+### Addon and alias domains <a id="AddonDomains-Addonandaliasdomains"></a>
 
 | Characteristic | Addon domains | Alias domains |
 | :--- | :--- | :--- |

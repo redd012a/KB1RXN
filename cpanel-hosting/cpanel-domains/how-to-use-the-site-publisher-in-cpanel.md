@@ -4,7 +4,7 @@
 cPanel > Home > Domains > Site Publisher
 ```
 
-### Overview {#SitePublisher-Overview}
+### Overview <a id="SitePublisher-Overview"></a>
 
 This interface enables you to quickly create a simple website, even if you have never created a website before. When you use this interface, you will select an appropriate template for your website, and then enter the website content that the template requests.
 
@@ -14,7 +14,7 @@ Note:
 
 Hosting providers and third-party developers can create and add additional Site Publisher templates. For more information, read our [Guide to Site Publisher Templates](https://documentation.cpanel.net/display/SDK/Guide+to+Site+Publisher+Templates) documentation.
 
-### Create or modify a Site Publisher website {#SitePublisher-CreateormodifyaSitePublisherwebsite}
+### Create or modify a Site Publisher website <a id="SitePublisher-CreateormodifyaSitePublisherwebsite"></a>
 
 Note:
 
@@ -52,7 +52,7 @@ To create or modify a Site Publisher website for one of your domains, perform th
    * _Connect to this website with Web Disk._ — Create Web Disk accounts in cPanel’s [_Web Disk_](https://documentation.cpanel.net/display/68Docs/Web+Disk) __interface \(_cPanel &gt;&gt; Home &gt;&gt; Files &gt;&gt; Web Disk_\) to upload and manage files from your local computer.
    * _Publish another Site Publisher website_. — Use this interface to create another Site Publisher website.
 
-#### Select a Domain {#SitePublisher-DomainSelectaDomain}
+#### Select a Domain <a id="SitePublisher-DomainSelectaDomain"></a>
 
 The _Select a Domain_ section of the interface lists the domain name and website directory \(document root\) for every domain that your cPanel account owns. If a domain currently uses a Site Publisher website, the interface also lists the website’s template’s name.
 
@@ -61,7 +61,7 @@ The _Select a Domain_ section of the interface lists the domain name and website
 
 If your cPanel account owns a large number of domains, the interface automatically paginates the table. Click the page numbers in the top right corner of the section to navigate between pages of domains, or use the _Search_ text box at the top of the list to search for a domain.
 
-### Site Publisher files {#SitePublisher-SitePublisherfiles}
+### Site Publisher files <a id="SitePublisher-SitePublisherfiles"></a>
 
 When you publish a Site Publisher website, cPanel automatically performs the following actions:
 

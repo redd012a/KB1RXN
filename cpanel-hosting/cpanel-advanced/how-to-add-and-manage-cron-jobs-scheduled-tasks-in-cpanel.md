@@ -6,7 +6,7 @@
 Home > Advanced > Cron Jobs
 ```
 
-### Overview {#CronJobs-Overview}
+### Overview <a id="CronJobs-Overview"></a>
 
 Cron jobs are scheduled tasks that the system runs at predefined times or intervals. Typically, a cron job contains a series of simple tasks that the system runs from a script file.
 
@@ -14,14 +14,14 @@ Notes:
 
 Exercise caution when you schedule cron jobs. If you schedule them to run too often, they may degrade performance.
 
-### Add a cron email {#CronJobs-Addacronemail}
+### Add a cron email <a id="CronJobs-Addacronemail"></a>
 
 The `Cron Email` section of the interface allows you to enter an email address for the system to send notifications when your cron jobs run. To set an email address, perform the following steps:
 
 1. In the `Email`  text box, enter the email address at which you wish to receive the notifications.
 2. Click `Update Email`.
 
-#### Disable email notifications {#CronJobs-Disableemailnotifications}
+#### Disable email notifications <a id="CronJobs-Disableemailnotifications"></a>
 
 To disable email notifications for all cron jobs, remove the email address.
 
@@ -39,7 +39,7 @@ To disable email notifications for a single cron job, perform the following step
 
 3. Save your changes.
 
-### Add a cron job {#CronJobs-Addacronjob}
+### Add a cron job <a id="CronJobs-Addacronjob"></a>
 
 To create a cron job, perform the following steps:
 
@@ -72,18 +72,18 @@ To create a cron job, perform the following steps:
 
 3. Click _Add New Cron Job_.
 
-### View existing cron jobs {#CronJobs-Viewexistingcronjobs}
+### View existing cron jobs <a id="CronJobs-Viewexistingcronjobs"></a>
 
 The _Current Cron Jobs_ table displays your existing cron jobs.
 
-#### Edit a cron job {#CronJobs-Editacronjob}
+#### Edit a cron job <a id="CronJobs-Editacronjob"></a>
 
 To edit a cron job, perform the following steps:
 
 1. Locate the cron job that you wish to edit and click _Edit_.
 2. Edit the settings that you wish to change and click _Edit Line_.
 
-#### Delete a cron job {#CronJobs-Deleteacronjob}
+#### Delete a cron job <a id="CronJobs-Deleteacronjob"></a>
 
 To delete a cron job, perform the following steps:
 

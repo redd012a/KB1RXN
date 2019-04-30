@@ -2,7 +2,7 @@
 
 We all know the importance of testing your site after a migration to your hosting account.  More often than not we wish to do this prior to updating the domain’s DNS nameservers to Brixly.   We have a few options that allow us to do this – via the control panel, as well as by modifying your local PC’s hosts file.
 
-### The cPanel \(Linux\) Temporary URL: {#The_cPanel_(Linux)_Temporary_URL:}
+### The cPanel \(Linux\) Temporary URL: <a id="The_cPanel_(Linux)_Temporary_URL:"></a>
 
 Every cPanel user’s main domain is accessible via the IP address of the server and their username.  For example:
 
@@ -18,7 +18,7 @@ The following addresses will bring you to the contents of your main public\_html
 <a href="http://1.1.1.1/~username/subfolder/anotherfolder/yetanotherfolder/">http://1.1.1.1/~username/subfolder/anotherfolder/yetanotherfolder/</a>
 ```
 
-### How To Change your Computer’s Hosts File: {#How_To_Change_your_Computer’s_Hosts_File:}
+### How To Change your Computer’s Hosts File: <a id="How_To_Change_your_Computer&#x2019;s_Hosts_File:"></a>
 
 Temporary URLs work well in most cases, but in other cases some content management systems rely heavily on DNS and redirections in order to function properly, making testing via temporary URLs difficult as clicking links will take you to the domain name again, itself.  In cases like this – we update the hosts file for testing on your local PC.
 
@@ -33,7 +33,7 @@ X.X.X.X will be the IP address we are going to force your computer \(and only yo
 
 Another thing to keep in mind when testing your site using the hosts file method- after updating your hosts file, **you will need to clear the cache and cookies from your web browser and restart the browser in order for things to take full effect.  In some instances, you may need to flush your DNS cache on the local system as well.**
 
-#### Updating a Hosts File on Windows: {#Updating_a_Hosts_File_on_Windows:}
+#### Updating a Hosts File on Windows: <a id="Updating_a_Hosts_File_on_Windows:"></a>
 
 Go to Start  -&gt;  All Programs  -&gt;  Accessories
 
@@ -57,7 +57,7 @@ Add your new host entry to the bottom of the file and save.
 
 _figure 2.  A Windows 7 hosts file with an example entry added so that mydomain.com resolves to the IP of 1.2.3.4_
 
-#### Updating a Hosts File in Linux: {#Updating_a_Hosts_File_in_Linux:}
+#### Updating a Hosts File in Linux: <a id="Updating_a_Hosts_File_in_Linux:"></a>
 
 Open up your favourite terminal application \(Most flavours store the default terminal application in the Accessories folder\).  Also, in this example, we are using the text editor called “nano” which is pre-installed on most Linux distributions.  You may also use other text editors such as vim or emacs if you wish.
 
@@ -77,7 +77,7 @@ Then authenticate with your password to grant root access.
 
 Once the text editor application opens, add your new host entry to the bottom of the file and save.
 
-#### Updating a Hosts File on a Mac: {#Updating_a_Hosts_File_on_a_Mac:}
+#### Updating a Hosts File on a Mac: <a id="Updating_a_Hosts_File_on_a_Mac:"></a>
 
 You will need to launch your Terminal, which you can search for using Spotlight, or you may also access this via Applications/Utilities
 

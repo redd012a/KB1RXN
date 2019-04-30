@@ -6,7 +6,7 @@ Database tuning is an expansive topic, and this guide covers only the basics of 
 
 > **Note**The steps in this guide require root privileges. Be sure to run the steps below as **root** or with the `sudo` prefix. For more information on privileges see our [Users and Groups](https://linode.com/docs/tools-reference/linux-users-and-groups) guide.
 
-### Tools That Can Help Optimize MySQL[Permalink](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#tools-that-can-help-optimize-mysql) {#tools-that-can-help-optimize-mysql}
+### Tools That Can Help Optimize MySQL[Permalink](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#tools-that-can-help-optimize-mysql) <a id="tools-that-can-help-optimize-mysql"></a>
 
 In order to determine if your MySQL database needs to be reconfigured, it is best to look at how your resources are performing now. This can be done with the [top command](https://linode.com/docs/uptime/monitoring/top-htop-iotop) or with the Linode [Longview](https://linode.com/docs/platform/longview/longview) service. At the very least, you should familiarize yourself with the RAM and CPU usage of your server, which can be discovered with these commands:
 
@@ -15,7 +15,7 @@ echo [PID]  [MEM]  [PATH] &&  ps aux | awk '{print $2, $4, $11}' | sort -k2rn | 
 ps -eo pcpu,pid,user,args | sort -k 1 -r | head -20
 ```
 
-#### MySQLTuner[Permalink](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#mysqltuner) {#mysqltuner}
+#### MySQLTuner[Permalink](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#mysqltuner) <a id="mysqltuner"></a>
 
 The [MySQLTuner](http://mysqltuner.com/) script assesses your MySQL installation, and then outputs suggestions for increasing your server’s performance and stability.
 
@@ -72,7 +72,7 @@ The [MySQLTuner](http://mysqltuner.com/) script assesses your MySQL installation
 
    MySQLTuner offers suggestions regarding how to better the database’s performance. If you are wary about updating your database on your own, following MySQLTuner’s suggestions is one of the safer ways to improve your database performance.
 
-### Tuning MySQL[Permalink](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#tuning-mysql) {#tuning-mysql}
+### Tuning MySQL[Permalink](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#tuning-mysql) <a id="tuning-mysql"></a>
 
 When altering the MySQL configuration, be alert to the changes and how they affect your database. Even when following the instructions of programs such as [MySQLTuner](https://linode.com/docs/databases/mysql/how-to-optimize-mysql-performance-using-mysqltuner/#mysqltuner), it is best to have some understanding of the process.
 
@@ -132,7 +132,7 @@ This value should be kept higher than your `open_tables` value. To determine thi
 SHOW STATUS LIKE 'open%';
 ```
 
-### More Information {#More_Information}
+### More Information <a id="More_Information"></a>
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 

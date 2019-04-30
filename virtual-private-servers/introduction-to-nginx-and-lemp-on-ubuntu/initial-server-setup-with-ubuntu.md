@@ -1,10 +1,10 @@
 # Initial Server Setup with Ubuntu
 
-## Getting Started {#getting-started}
+## Getting Started <a id="getting-started"></a>
 
 When you first create a new virtual private server, there are a few configuration steps that you should take early on as part of the basic setup. This will increase the security and usability of your server and will give you a solid foundation for subsequent actions.
 
-## Step One — Root Login {#step-one-root-login}
+## Step One — Root Login <a id="step-one-root-login"></a>
 
 To log into your server, you will need to know your server's public IP address and the password for the "root" user's account. If you have not already logged into your server, you may want to follow the first tutorial in this series, How to Connect to Your VPS with SSH, which covers this process in detail.
 
@@ -16,13 +16,13 @@ ssh root@SERVER_IP_ADDRESS
 
 Complete the login process by accepting the warning about host authenticity, if it appears, then providing your root authentication \(password or private key\). If it is your first time logging into the server, with a password, you will also be prompted to change the root password.
 
-### About Root {#about-root}
+### About Root <a id="about-root"></a>
 
 The root user is the administrative user in a Linux environment that has very broad privileges. Because of the heightened privileges of the root account, you are actually _discouraged_ from using it on a regular basis. This is because part of the power inherent with the root account is the ability to make very destructive changes, even by accident.
 
 The next step is to set up an alternative user account with a reduced scope of influence for day-to-day work. We'll teach you how to gain increased privileges during the times when you need them.
 
-## Step Two — Create a New User {#step-two-create-a-new-user}
+## Step Two — Create a New User <a id="step-two-create-a-new-user"></a>
 
 Once you are logged in as `root`, we're prepared to add the new user account that we will use to log in from now on.
 
@@ -36,7 +36,7 @@ You will be asked a few questions, starting with the account password.
 
 Enter a strong password and, optionally, fill in any of the additional information if you would like. This is not required and you can just hit "ENTER" in any field you wish to skip.
 
-## Step Three — Root Privileges {#step-three-root-privileges}
+## Step Three — Root Privileges <a id="step-three-root-privileges"></a>
 
 Now, we have a new user account with regular account privileges. However, we may sometimes need to do administrative tasks.
 
@@ -46,13 +46,13 @@ To add these privileges to our new user, we need to add the new user to the "sud
 
 As `root`, run this command to add your new user to the _sudo_ group \(substitute the highlighted word with your new user\):
 
-#### For Ubuntu 14.04 or lower {#for-ubuntu-14-04-or-lower}
+#### For Ubuntu 14.04 or lower <a id="for-ubuntu-14-04-or-lower"></a>
 
 ```text
 gpasswd -a demo sudo
 ```
 
-#### For Ubuntu 16.04 or higher {#for-ubuntu-16-04-or-higher}
+#### For Ubuntu 16.04 or higher <a id="for-ubuntu-16-04-or-higher"></a>
 
 ```text
 usermod -aG sudo demo
@@ -60,11 +60,11 @@ usermod -aG sudo demo
 
 Now your user can run commands with super user privileges! For more information about how this works, check out this sudoers tutorial.
 
-## Step Four — Add Public Key Authentication \(Recommended\) {#step-four-add-public-key-authentication-recommended}
+## Step Four — Add Public Key Authentication \(Recommended\) <a id="step-four-add-public-key-authentication-recommended"></a>
 
 The next step in securing your server is to set up public key authentication for your new user. Setting this up will increase the security of your server by requiring a private SSH key to log in.
 
-### Generate a Key Pair {#generate-a-key-pair}
+### Generate a Key Pair <a id="generate-a-key-pair"></a>
 
 If you do not already have an SSH key pair, which consists of a public and private key, you need to generate one. If you already have a key that you want to use, skip to the _Copy the Public Key_ step.
 
@@ -88,7 +88,7 @@ Next, you will be prompted for a passphrase to secure the key with. You may eith
 
 This generates a private key, `id_rsa`, and a public key, `id_rsa.pub`, in the `.ssh` directory of the _localuser_'s home directory. Remember that the private key should not be shared with anyone who should not have access to your servers!
 
-### Copy the Public Key {#copy-the-public-key}
+### Copy the Public Key <a id="copy-the-public-key"></a>
 
 After generating an SSH key pair, you will want to copy your public key to your new server. We will cover two easy ways to do this.
 
@@ -164,7 +164,7 @@ To read more about how key authentication works, read this tutorial: How To Conf
 
 Next, we'll show you how to increase your server's security by disabling password authentication.
 
-## Step Five — Disable Password Authentication \(Recommended\) {#step-five-disable-password-authentication-recommended}
+## Step Five — Disable Password Authentication \(Recommended\) <a id="step-five-disable-password-authentication-recommended"></a>
 
 Now that your new user can use SSH keys to log in, you can increase your server's security by disabling password-only authentication. Doing so will restrict SSH access to your server to public key authentication only. That is, the only way to log in to your server \(aside from the console\) is to possess the private key that pairs with the public key that was installed.
 
@@ -200,7 +200,7 @@ sudo systemctl reload sshd
 
 Password authentication is now disabled. Your server is now only accessible with SSH key authentication.
 
-## Step Six — Test Log In {#step-six-test-log-in}
+## Step Six — Test Log In <a id="step-six-test-log-in"></a>
 
 Now, before you log out of the server, you should test your new configuration. Do not disconnect until you confirm that you can successfully log in via SSH.
 
@@ -222,7 +222,7 @@ Remember, if you need to run a command with root privileges, type "sudo" before 
 sudo command_to_run
 ```
 
-## Step Seven — Set Up a Basic Firewall {#step-seven-set-up-a-basic-firewall}
+## Step Seven — Set Up a Basic Firewall <a id="step-seven-set-up-a-basic-firewall"></a>
 
 Ubuntu 16.04 servers can use the UFW firewall to make sure only connections to certain services are allowed. We can set up a basic firewall very easily using this application.
 
@@ -262,7 +262,7 @@ OutputStatus: active​To                         Action      From--            
 
 If you install and configure additional services, you will need to adjust the firewall settings to allow acceptable traffic in. You can learn some common UFW operations in [this guide](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands).
 
-## Where To Go From Here? {#where-to-go-from-here}
+## Where To Go From Here? <a id="where-to-go-from-here"></a>
 
 At this point, you have a solid foundation for your server. You can install any of the software you need on your server now.[  
 ](https://vimzaa.gitbook.io/kb/~/drafts/-LJJ1HbtGrv-3pCJ50KA/primary/)

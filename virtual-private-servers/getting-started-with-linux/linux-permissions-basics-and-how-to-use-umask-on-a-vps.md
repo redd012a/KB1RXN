@@ -8,11 +8,11 @@ The _umask_ command is used to determine the default permissions assigned to fil
 
 This guide will explain the basics of Linux permissions, and will demonstrate the usefulness of configuring umask correctly. It will also briefly cover the _chmod_ command as an associated permissions tool.
 
-### Permission Categories {#categories}
+### Permission Categories <a id="categories"></a>
 
 Linux permissions can seem obscure and difficult to understand to new users. However, once you are familiar with the way that permissions are represented, it is trivial to read and change the permissions of a file or directory with ease.
 
-#### Owner Permissions {#owner}
+#### Owner Permissions <a id="owner"></a>
 
 The first concept necessary to understand permissions is that Linux is fundamentally a multi-user operating system.
 
@@ -41,7 +41,7 @@ The _/etc/passwd_ file contains a line for every user that has been created on y
 
 Configuring services to operate as a distinct user allows us to control the service's access by taking advantage of the user permissions assignment. Many programs are configured to create a username and perform all operations using that user.
 
-#### Group Permissions {#group}
+#### Group Permissions <a id="group"></a>
 
 The second category that we can assign permissions to is the "group owner" of the file.
 
@@ -77,13 +77,13 @@ The first field of each line is the name of a group.
 
 Linux allows you to assign permissions based on the group owner of a file. This allows you to provide custom permissions to a group of people since only one user can own a file.
 
-#### Other Permissions {#other}
+#### Other Permissions <a id="other"></a>
 
 The last category that you can assign permissions for is the "other" category. In this context, other is defined as any user that is not the file owner and is not a member of the group that owns the file.
 
 This category allows you to set a base permissions level that will apply to anyone outside of the other two control groups.
 
-### Types of Permissions {#types}
+### Types of Permissions <a id="types"></a>
 
 Each permissions category \(owner, group owner, and other\) can be assigned permissions that allow or restrict their ability to read, write, or execute a file.
 
@@ -93,7 +93,7 @@ For directories, read permissions are necessary to _ls_ \(list\) the contents of
 
 Linux represents these types of permissions using two separate symbolic notations: alphabetic and octal.
 
-#### Alphabetic Notation {#alphabetic}
+#### Alphabetic Notation <a id="alphabetic"></a>
 
 Alphabetic notation is easy to understand and is used by a few common programs to represent permissions.
 
@@ -136,7 +136,7 @@ In the example above, the owner of the "acpi" directory has read, write, and exe
 
 The "anacrontab" file allows the file owner to read and modify, but group members and other users only have permission to read.
 
-#### Octal Notation {#octal}
+#### Octal Notation <a id="octal"></a>
 
 The more concise, but slightly less intuitive way of representing permissions is with octal notation.
 
@@ -156,7 +156,7 @@ Similar to alphabetic notation, octal notation can include an optional leading c
 
 An essential program that benefits from using octal notation is the _chmod_ command.
 
-### Using the Chmod Command {#chmod}
+### Using the Chmod Command <a id="chmod"></a>
 
 The most popular way of changing a file's permissions is by using octal notation with the _chmod_ command. We will practice by creating an empty file in our home directory:
 
@@ -205,7 +205,7 @@ ls -l testfile
 -rw-rw-r-- 1 demouser demouser 0 Jul 10 17:23 testfile
 ```
 
-### Setting Default Permissions with Umask {#umask}
+### Setting Default Permissions with Umask <a id="umask"></a>
 
 The _umask_ command defines the default permissions for newly created files based on the "base" permissions set defined for files and directories.
 
@@ -280,7 +280,7 @@ umask 022
 
 Here, we have chosen to give the owner full permissions, and take away write permissions for both the group owner and other categories. Adjust this setting to your liking to make your preferences available next time you log in.
 
-### A Word of Caution {#caution}
+### A Word of Caution <a id="caution"></a>
 
 An important point to remember when changing permissions is that certain areas of the filesystem and certain processes require specific permissions to run correctly. Inadequate permissions can lead to errors and non-functioning applications.
 

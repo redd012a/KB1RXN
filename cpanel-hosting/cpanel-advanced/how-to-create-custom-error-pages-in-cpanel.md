@@ -14,13 +14,13 @@ cPanel > Home > Advanced > Error Pages
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Overview {#ErrorPages-Overview}
+### Overview <a id="ErrorPages-Overview"></a>
 
 Error pages inform visitors about problems when they attempt to access your site. Each problem has its own status code \(for example, `404`\) and error page.
 
 The web server automatically provides basic error pages, but the _Error Pages_ interface allows you to define custom error pages for any [HTTP status code](https://documentation.cpanel.net/display/CKB/HTTP+Error+Codes+and+Quick+Fixes).
 
-### Edit an error page {#ErrorPages-Editanerrorpage}
+### Edit an error page <a id="ErrorPages-Editanerrorpage"></a>
 
 To customize an error page, perform the following steps:
 

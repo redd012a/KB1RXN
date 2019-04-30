@@ -8,7 +8,7 @@ description: >-
 
 
 
-#### Introduction {#introduction}
+#### Introduction <a id="introduction"></a>
 
 Privilege separation is one of the fundamental security paradigms implemented in Linux and Unix-like operating systems. Regular users operate with limited privileges in order to reduce the scope of their influence to their own environment, and not the wider operating system.
 
@@ -20,11 +20,11 @@ We will be completing these steps on an Ubuntu 16.04 server, but most modern Lin
 
 This guide assumes that you have already completed the [initial server setup](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04) discussed here. Log into your server as regular, non-root user and continue below.
 
-### How To Obtain Root Privileges {#how-to-obtain-root-privileges}
+### How To Obtain Root Privileges <a id="how-to-obtain-root-privileges"></a>
 
 There are three basic ways to obtain `root` privileges, which vary in their level of sophistication.
 
-#### Log In As Root {#log-in-as-root}
+#### Log In As Root <a id="log-in-as-root"></a>
 
 The simplest and most straight forward method of obtaining `root` privileges is simply to log into your server as the `root` user from the onset.
 
@@ -38,7 +38,7 @@ ssh root@server_domain_or_IP
 
 If you have not set up SSH keys for the `root` user, enter the `root` password when prompted.
 
-#### Use "su" to Become Root {#use-quot-su-quot-to-become-root}
+#### Use "su" to Become Root <a id="use-quot-su-quot-to-become-root"></a>
 
 Logging in as `root` is usually not recommended, because it is easy to begin using the system for non-administrative tasks, which is dangerous.
 
@@ -58,7 +58,7 @@ When you have finished the tasks which require `root` privileges, return to your
 exit
 ```
 
-#### Use "sudo" to Execute Commands as Root {#use-quot-sudo-quot-to-execute-commands-as-root}
+#### Use "sudo" to Execute Commands as Root <a id="use-quot-sudo-quot-to-execute-commands-as-root"></a>
 
 The final, and most complex, way of obtaining `root` privileges that we will discuss is with the `sudo`command.
 
@@ -74,7 +74,7 @@ Because of its security implications, `sudo` access is not granted to users by d
 
 In the following section, we will discuss how to modify the configuration in greater detail.
 
-### What is Visudo? {#what-is-visudo}
+### What is Visudo? <a id="what-is-visudo"></a>
 
 The `sudo` command is configured through a file located at `/etc/sudoers`.
 
@@ -127,7 +127,7 @@ After you have configured `visudo`, execute the command to access the `/etc/sudo
 sudo visudo
 ```
 
-### How To Modify the Sudoers File {#how-to-modify-the-sudoers-file}
+### How To Modify the Sudoers File <a id="how-to-modify-the-sudoers-file"></a>
 
 You will be presented with the `/etc/sudoers` file in your selected text editor.
 
@@ -148,7 +148,7 @@ root    ALL=(ALL:ALL) ALL
 
 Let's take a look at what these lines do.
 
-#### Default Lines {#default-lines}
+#### Default Lines <a id="default-lines"></a>
 
 The first line, "Defaults env\_reset", resets the terminal environment to remove any user variables. This is a safety measure used to clear potentially harmful environmental variables from the `sudo` session.
 
@@ -156,7 +156,7 @@ The second line, `Defaults mail_badpass`, tells the system to mail notices of ba
 
 The third line, which begins with "Defaults secure\_path=...", specifies the `PATH` \(the places in the filesystem the operating system will look for applications\) that will be used for `sudo` operations. This prevents using user paths which may be harmful.
 
-#### User Privilege Lines {#user-privilege-lines}
+#### User Privilege Lines <a id="user-privilege-lines"></a>
 
 The fourth line, , which dictates the `root` user's `sudo` privileges, is different from the preceding lines. Let's take a look at what the different fields mean:
 
@@ -168,7 +168,7 @@ The fourth line, , which dictates the `root` user's `sudo` privileges, is differ
 
 This means that our `root` user can run any command using `sudo`, as long as they provide their password.
 
-#### Group Privilege Lines {#group-privilege-lines}
+#### Group Privilege Lines <a id="group-privilege-lines"></a>
 
 The next two lines are similar to the user privilege lines, but they specify `sudo` rules for groups.
 
@@ -176,7 +176,7 @@ Names beginning with a "%" indicate group names.
 
 Here, we see the "admin" group can execute any command as any user on any host. Similarly, the `sudo`group can has the same privileges, but can execute as any group as well.
 
-#### Included /etc/sudoers.d Line {#included-etc-sudoers-d-line}
+#### Included /etc/sudoers.d Line <a id="included-etc-sudoers-d-line"></a>
 
 The last line might look like a comment at first glance:/etc/sudoers
 
@@ -198,7 +198,7 @@ As with the `/etc/sudoers` file itself, you should always edit files within the 
 sudo visudo -f /etc/sudoers.d/file_to_edit
 ```
 
-### How To Give a User Sudo Privileges {#how-to-give-a-user-sudo-privileges}
+### How To Give a User Sudo Privileges <a id="how-to-give-a-user-sudo-privileges"></a>
 
 The most common operation that users want to accomplish when managing `sudo` permissions is to grant a new user general `sudo` access. This is useful if you want to give an account full administrative access to the system.
 
@@ -244,11 +244,11 @@ sudo visudo
 . . .
 ```
 
-### How To Set Up Custom Rules {#how-to-set-up-custom-rules}
+### How To Set Up Custom Rules <a id="how-to-set-up-custom-rules"></a>
 
 Now that we have gotten familiar with the general syntax of the file, let's create some new rules.
 
-#### How To Create Aliases {#how-to-create-aliases}
+#### How To Create Aliases <a id="how-to-create-aliases"></a>
 
 The `sudoers` file can be organized more easily by grouping things with various kinds of "aliases".
 
@@ -296,7 +296,7 @@ This will allow anyone who is a member of `GROUPONE` to execute commands as the 
 
 Just keep in mind that later rules will override earlier rules when there is a conflict between the two.
 
-#### How To Lock Down Rules {#how-to-lock-down-rules}
+#### How To Lock Down Rules <a id="how-to-lock-down-rules"></a>
 
 There are a number of ways that you can achieve more control over how `sudo` reacts to a call.
 
@@ -336,7 +336,7 @@ username  ALL = NOEXEC: /usr/bin/less
 . . .
 ```
 
-### Miscellaneous Information {#miscellaneous-information}
+### Miscellaneous Information <a id="miscellaneous-information"></a>
 
 There are a few more pieces of information that may be useful when dealing with `sudo`.
 
@@ -407,7 +407,7 @@ Your mind just hasn't been the same since the electro-shock, has it?
 My mind is going. I can feel it.
 ```
 
-### Conclusion {#conclusion}
+### Conclusion <a id="conclusion"></a>
 
 You should now have a basic understanding of how to read and modify the `sudoers` file, and a grasp on the various methods that you can use to obtain `root` privileges.
 

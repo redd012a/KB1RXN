@@ -2,7 +2,7 @@
 
 
 
-#### Uploading Content Using FTP {#Uploading_Content_Using_FTP}
+#### Uploading Content Using FTP <a id="Uploading_Content_Using_FTP"></a>
 
 To connect to the server using FTP, you need the following information:
 
@@ -20,7 +20,7 @@ Then specify new username and password for the **System User**.
 
 ![System\_user](https://docs.plesk.com/en-US/onyx/quick-start-guide/images/77077.png)
 
-#### Uploading Content Using the File Manager {#Uploading_Content_Using_the_File_Manager}
+#### Uploading Content Using the File Manager <a id="Uploading_Content_Using_the_File_Manager"></a>
 
 To upload content, go to **Files**, navigate to the folder to which you want to upload content, click **Upload**, select the file to be uploaded, and click **Open**.
 

@@ -117,7 +117,7 @@ When you’ve successfully logged in, you’ll receive an operating system-speci
 
 If you don’t have PuTTY installed, visit the [Download PuTTY site](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and choose the Windows installer from the **Package files** list. Once PuTTY is installed, start the program.
 
-### Configuring PuTTY {#configuring-putty}
+### Configuring PuTTY <a id="configuring-putty"></a>
 
 On the **PuTTY Configuration** screen that opens, fill in the field labeled **Host Name \(or IP Address\)** with your VPS’s IP address, which you can find on [your dashboard](https://vps.vimzaa.com). Confirm that the **Port** is set to `22` and that the **Connection type** `SSH` is selected.
 
@@ -139,7 +139,7 @@ Finally, you can save these preferences to avoid typing them manually in the fut
 
 You now have saved all of the configuration data needed to connect to your new server.
 
-### Connecting with PuTTY {#connecting-with-putty}
+### Connecting with PuTTY <a id="connecting-with-putty"></a>
 
 Once you have a session saved, you can recall these values at any time by returning to the **Session** screen, selecting the session you would like to use in the **Saved Sessions** section, and clicking **Load** to recall the settings. This will auto-fill all of the fields with the values you initially selected.
 

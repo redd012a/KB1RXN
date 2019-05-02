@@ -19,6 +19,7 @@
     * [Installing LEMP Stack on Ubuntu 16.04](virtual-private-servers/introduction-to-nginx-and-lemp-on-ubuntu/installing-lemp-stack-on-ubuntu-16.04.md)
   * [Anti-Spam Best Practices](virtual-private-servers/anti-spam-best-practices.md)
 * [cPanel Hosting](cpanel-hosting/README.md)
+  * [Cloudflare](cpanel-hosting/cloudflare.md)
   * [cPanel - Advanced](cpanel-hosting/cpanel-advanced/README.md)
     * [How to add and manage cron jobs / scheduled tasks in cPanel](cpanel-hosting/cpanel-advanced/how-to-add-and-manage-cron-jobs-scheduled-tasks-in-cpanel.md)
     * [How to track DNS using cPanel](cpanel-hosting/cpanel-advanced/how-to-track-dns-using-cpanel.md)

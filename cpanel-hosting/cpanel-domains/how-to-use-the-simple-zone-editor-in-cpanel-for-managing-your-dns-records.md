@@ -6,13 +6,11 @@ DNS converts domain names into computer-readable IP addresses. DNS zone files co
 **Warning:** This interface is deprecated and will be removed in a future release. Use the new [Zone Editor](https://alfa.cloudns.io:2083/cpsess1488551919/frontend/paper_lantern/zone_editor/index.html) to perform the same functions.
 {% endhint %}
 
-{% code-tabs %}
-{% code-tabs-item title="Location under cPanel" %}
+{% code title="Location under cPanel" %}
 ```text
 cPanel > Home > Domains > Simple Zone Editor
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Overview
 

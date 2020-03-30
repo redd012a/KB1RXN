@@ -66,11 +66,11 @@ In order to configure the SPF and DKIM records, follow the instructions below:
   
 Log into **cPanel** &gt; **Email** section &gt; **Email Deliverability** menu.  
 For cPanel Basic Theme:  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/Deliverability.png)  
+![](../../.gitbook/assets/deliverability.png)  
   
 For cPanel Retro theme:  
   
-****![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/Deliverability_1.png)  
+****![](../../.gitbook/assets/deliverability_1.png)  
 ****This section allows you to perform the following actions:  
 1. **Repair** — this feature allows the system to repair a domain's invalid records:  
 **NOTES**:
@@ -80,41 +80,43 @@ For cPanel Retro theme:
 * Reloading the interface does not interrupt the repair process. 
 
   
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/repair_option1.png)  
+![](../../.gitbook/assets/repair_option1.png)  
 In the window that appears upon clicking **Repair**,  you can review and confirm the system's recommendations for any invalid records. You can also **Copy** or **Customize** a suggested record before you approve the system's repairs. Click on **Repair** and the records will be added to the DNS zone of the domain/subdomain automatically.  
   
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/repair_option2.png)  
+![](../../.gitbook/assets/repair_option2.png)  
   
 This process can take up to **five minutes**, depending on the server. When the records are set up, you will receive a corresponding success message.  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/repair_option3.png)  
+![](../../.gitbook/assets/repair_option3.png)  
   
 Allow some time to pass for the records to propagate and refresh the page afterwards. The **Email Deliverability Status** will be then changed to **Valid**:  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/repair_option4.png)  
+![](../../.gitbook/assets/repair_option4.png)  
   
   
 2. **Manage** - this option allows you to manually configure a domain's mail-related DNS records.  
   
 The **Manage the Domain** section already displays the properly-configured DKIM and SPF record values. So in most cases, you just need to **Copy** them and paste manually to the DNS zone of your domain. Alternatively, you can click **Install the suggested record** to have the SPF and DKIM records added to the DNS zone automatically:  
 **NOTE**: The **Install the suggested record** option is available only in case your domain name is pointed to our **Shared hosting nameservers**.  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option1.png)After the record is installed, you will receive the confirmation message:  
+![](../../.gitbook/assets/manage_option1.png)After the record is installed, you will receive the confirmation message:  
   
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option1r.png)  
+![](../../.gitbook/assets/manage_option1r.png)  
 In the **SPF** section, you will also have an option to **Customize** the system's recommended SPF record for a domain.  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option2.png)  
+![](../../.gitbook/assets/manage_option2.png)  
 The interface displays the domain's current SPF name and value in the **Current "SPF" \(TXT\) Record** section, if one exists, and the system's recommendations in the **Suggested "SPF" \(TXT\) Record** section:  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option2r.png)  
+![](../../.gitbook/assets/manage_option2r.png)  
 You can configure the following settings:  
 1. **Domain Settings -** this section allows you to define the hosts or MX servers allowed to send mail from your domain:  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option_spf1.png)  
+![](../../.gitbook/assets/manage_option_spf1.png)  
   
 2. **IP Address Settings** - this section allows you to add additional IP Address blocks to your SPF record. The system automatically includes your server's main IPv4 or IPv6 addresses in these lists:  
   
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option_spf2.png)  
+![](../../.gitbook/assets/manage_option_spf2.png)  
   
 3. **Additional Settings** - this section allows you to modify additional SPF record settings.4. **Preview of the Updated Record**- this section displays what the updated SPF record will look like, based on its current modifications. Click the **Install a Customized SPF Record** tab to install the new record:  
-![](https://namecheap.simplekb.com//SiteContents/2-7C22D5236A4543EB827F3BD8936E153E/media/manage_option_spf3.png)  
+![](../../.gitbook/assets/manage_option_spf3.png)  
   
   
   
-That's it!
+That's it!  
+  
+Source: namecheap.com
 

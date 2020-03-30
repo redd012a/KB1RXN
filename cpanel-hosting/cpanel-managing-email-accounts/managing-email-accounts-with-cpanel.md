@@ -2,13 +2,11 @@
 
 Manage the email accounts associated with your domain. Use the _Set Up Mail Client_ interface to add an email account to your mobile device or desktop email client.
 
-{% code-tabs %}
-{% code-tabs-item title="Location Under cPanel" %}
+{% code title="Location Under cPanel" %}
 ```text
 cPanel >> Home >> Email >> Email Accounts
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Overview
 

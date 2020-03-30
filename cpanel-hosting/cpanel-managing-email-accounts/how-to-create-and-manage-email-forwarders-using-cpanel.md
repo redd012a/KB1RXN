@@ -2,13 +2,11 @@
 
 Send a copy of any incoming email from one address to another. For example, forward **joe@example.com** to **joseph@example.com** so that you only have one inbox to check.
 
-{% code-tabs %}
-{% code-tabs-item title="Location under cPanel" %}
+{% code title="Location under cPanel" %}
 ```text
 cPanel >> Home >> Email >> Forwarders
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Overview
 

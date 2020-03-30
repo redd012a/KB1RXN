@@ -2,13 +2,11 @@
 
 Network Tools allow a user to find out information about any domain, or to trace the route from the server your site is on to the computer you are accessing cPanel from. Finding out information about a domain can be useful in making sure your DNS is set up properly as you will find out information about your IP address as well as your DNS.
 
-{% code-tabs %}
-{% code-tabs-item title="Location under cPanel" %}
+{% code title="Location under cPanel" %}
 ```text
 cPanel > Home > Advanced > Track DNS
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Overview <a id="TrackDNS-Overview"></a>
 

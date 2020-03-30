@@ -6,13 +6,11 @@ An error page informs a visitor when there is a problem accessing your site. Eac
 
 Basic error pages are automatically provided by the web server \(Apache\). However, if you prefer, you can create a custom error page for any valid HTTP status code beginning in 4 or 5.
 
-{% code-tabs %}
-{% code-tabs-item title="Location Under cPanel" %}
+{% code title="Location Under cPanel" %}
 ```text
 cPanel > Home > Advanced > Error Pages
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Overview <a id="ErrorPages-Overview"></a>
 

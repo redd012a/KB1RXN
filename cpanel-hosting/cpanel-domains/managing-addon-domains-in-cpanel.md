@@ -2,13 +2,11 @@
 
 An addon domain is an additional domain that the system stores as a subdomain of your main site. Use addon domains to host additional domains on your account.
 
-{% code-tabs %}
-{% code-tabs-item title="Location under cPanel" %}
+{% code title="Location under cPanel" %}
 ```text
 cPanel > Home > Domains > Addon Domains
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Overview
 

@@ -94,8 +94,7 @@ nano /lib/systemd/system/teamspeak.service
 
 Paste this content into it:
 
-{% code-tabs %}
-{% code-tabs-item title="/lib/systemd/system/teamspeak.service" %}
+{% code title="/lib/systemd/system/teamspeak.service" %}
 ```bash
 [Unit]
 Description=TeamSpeak 3 Server
@@ -116,8 +115,7 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Once you are done, save the file and close the editor. Now we will activate the script so that it will start on boot.
 
@@ -172,8 +170,7 @@ nano /etc/init.d/teamspeak
 
  Once you are in the file paste the following code into the file by right clicking the mouse.
 
-{% code-tabs %}
-{% code-tabs-item title="/etc/init.d/teamspeak" %}
+{% code title="/etc/init.d/teamspeak" %}
 ```bash
 #!/bin/sh
 # chkconfig: 2345 99 10
@@ -198,8 +195,7 @@ su $USER -c "$STARTSCRIPT status"
 echo "Usage $0 start|stop|restart|status"
 esac
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Click Ctrl + O to save the file then Ctrl + X to exit the file. We can then set the file permission so it will work properly.
 

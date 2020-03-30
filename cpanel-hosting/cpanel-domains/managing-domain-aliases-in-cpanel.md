@@ -2,13 +2,11 @@
 
 Domain aliases make your website available from another domain name. For example, you can make **www.example.net** and **www.example.org** show content from **www.example.com**
 
-{% code-tabs %}
-{% code-tabs-item title="Location Under cPanel" %}
+{% code title="Location Under cPanel" %}
 ```text
 cPanel > Home > Domains > Aliases
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Overview <a id="Aliases-Overview"></a>
 

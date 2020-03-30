@@ -1,12 +1,10 @@
 # Change Your E-Mail Account Password
 
-{% code-tabs %}
-{% code-tabs-item title="Location under cPanel" %}
+{% code title="Location under cPanel" %}
 ```text
 cPanel >> Email - Email Accounts
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 A secure password is one that contains no dictionary words and includes upper and lower-case letters, numbers, and symbols.
 
